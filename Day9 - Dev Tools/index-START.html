@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+</head>
+<body>
+
+  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    // Regular
+
+    // Interpolated - passes the second variable into the first. Not as usefull with backtick template literals
+    console.log('hello, I am a %s', 'whatever')
+
+    // Styled - style the console log w/ %c
+    console.log('%c I am awesome', 'font-size: 50px; text-shaddow: 10px');
+
+    // warning!
+    console.warn('oops');
+
+    // Error :|
+    console.error('wrong');
+
+    // Info
+    console.log('!');
+    // Testing
+    // it is testing, will only fire if first part is not true
+    console.assert(1 === 1, 'this is wrong!')
+
+    // clearing - clears console
+    console.clear();
+
+    // Viewing DOM Elements - dir gives you a drop down, log shows the actual element
+    // console.log(p);
+    // console.dir(p);
+
+    // Grouping together
+    dogs.forEach( dog => {
+      console.group(`${dog.name}`);
+      // console.logs here
+      console.groupEnd(`${dog.name}`);
+    })
+
+    // counting - counts how many of something you have
+    console.count('test');
+    console.count('test');
+    console.count('test');
+
+    // timing - how long something takes
+    console.time('fetching data')
+  // do something that takes time
+    console.timeEnd('test');
+// table - take array of objects and display them in a table if they have same proporties
+    console.table(dogs);
+
+  </script>
+</body>
+</html>
